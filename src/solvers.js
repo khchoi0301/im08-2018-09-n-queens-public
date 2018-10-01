@@ -103,14 +103,14 @@ window.countNRooksSolutions = function (n) {  // var solution = new Board({'n':n
         if(check(solution.rows(), n)){
           this.result.push(JSON.stringify(solution.rows()))
           // console.log('made it',JSON.stringify(solution.rows()))
-          // console.log('made it',n,this.result)
+          console.log('made it',n,this.result)
           if(this.value[0]>0) {
             this.replace(this.value[0]-1, n)
           }
         }
     
         for(let i=0;i<this.children.length;i++){
-          if(this.children[i]) {
+          if(this.children[i]&&solution.rows()[this.value[0]][this.value[1]]) {
             // console.log(n, this.children[i].value, i)
             this.children[i].contains() // i는 뒷자리와 같음
           } 
@@ -200,7 +200,7 @@ window.findNQueensSolution = function (n) {
         }
     
         for(let i=0;i<this.children.length;i++){
-          if(this.children[i]) {
+          if(this.children[i]&&solution.rows()[this.value[0]][this.value[1]]) {
             // console.log(n, this.children[i].value, i)
             this.children[i].contains() // i는 뒷자리와 같음
           } 
@@ -297,7 +297,7 @@ window.countNQueensSolutions = function (n) {
         }
     
         for(let i=0;i<this.children.length;i++){
-          if(this.children[i]) {
+          if(this.children[i]&&solution.rows()[this.value[0]][this.value[1]]) {
             // console.log(n, this.children[i].value, i)
             this.children[i].contains() // i는 뒷자리와 같음
           } 
